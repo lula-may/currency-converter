@@ -16,6 +16,8 @@ img {
 
 .page__body {
   @include basic-text();
+  margin: 0;
+  padding: 0;
 
   background-color: $bg-basic;
 }

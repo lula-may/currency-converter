@@ -1,0 +1,28 @@
+.footer-nav {
+  @include list-reset();
+  padding-top: 5px;
+}
+
+.footer-nav__item {
+  margin-bottom: 10px;
+}
+
+.footer-nav__link {
+  font-size: $link-font-size;
+  line-height: 1.4;
+  font-weight: 500;
+  color: $text-clr-basic;
+  text-decoration: none;
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
+
+  &:visited {
+    color: $text-clr-basic;
+  }
+}

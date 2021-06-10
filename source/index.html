@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body class="page__body">
-    <svg width="0" height="0" class="hidden">
+    <svg style="display: none;">
       <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 22" id="login">
         <path d="M2.222 14.3h2.222v5.5h13.334V2.2H4.444v5.5H2.222V1.1c0-.292.117-.572.326-.778.208-.206.49-.322.785-.322H18.89c.295 0 .577.116.786.322.208.206.325.486.325.778v19.8c0 .292-.117.572-.325.778a1.117 1.117 0 01-.786.322H3.333c-.294 0-.577-.116-.785-.322a1.095 1.095 0 01-.326-.778v-6.6zM8.89 9.9V6.6l5.555 4.4-5.555 4.4v-3.3H0V9.9h8.889z" fill="#1F1E25"></path>
       </symbol>
@@ -41,7 +41,7 @@
       </symbol>
     </svg>
     <!--
-    <svg class="icon" width="" height=""><use xlink:href="#phone"></use></svg>
+
     <svg class="icon" width="" height=""><use xlink:href="#telephone"></use></svg>
     <svg class="icon" width="" height=""><use xlink:href="#arrow-down"></use></svg>
     <svg class="icon" width="" height=""><use xlink:href="#arrow-right"></use></svg>
@@ -205,17 +205,19 @@
 
     <footer class="page__footer main-footer">
       <div class="main-footer__wrapper">
-        <div class="main-footer__item info">
-          <a href="#" class="logo" aria-label="На главную">
+        <div class="main-footer__item main-footer__item--info">
+          <a href="#" class="main-footer__logo logo" aria-label="На главную">
             <img class="logo__image" src="img/logo.svg" width="150" height="25" alt="Логотип Лига Банк" >
           </a>
-          <address class="info__text">150015, г. Москва, ул. Московская, д. 32</address>
-          <p class="info__text">Генеральная лицензия Банка России №1050</p>
-          <p class="info__text">&copy; Лига Банк, 2019</p>
+          <div class="main-footer__info">
+            <address class="main-footer__text">150015, г. Москва, ул. Московская, д. 32</address>
+            <p class="main-footer__text">Генеральная лицензия Банка России №1050</p>
+            <p class="main-footer__text">&copy; Лига Банк, 2019</p>
+          </div>
         </div>
 
-        <div class="main-footer__item footer-nav">
-          <ul class="footer-nav__list">
+        <div class="main-footer__item main-footer__item--nav">
+          <ul class="footer-nav">
             <li class="footer-nav__item"><a href="#" class="footer-nav__link">Услуги</a></li>
             <li class="footer-nav__item"><a href="#" class="footer-nav__link">Рассчитать кредит</a></li>
             <li class="footer-nav__item"><a href="#" class="footer-nav__link">Контакты</a></li>
@@ -223,15 +225,27 @@
           </ul>
         </div>
 
-        <div class="main-footer__item contact">
-          <a class="contact-link contact-link--short" href="tel:0904">*0904</a>
+        <div class="main-footer__item contact contact--mobile">
+          <a class="contact__link contact__link--short" href="tel:0904">
+            <svg class="contact__icon" width="10" height="16">
+              <use xlink:href="#phone"></use>
+            </svg>
+            <span>*0904</span>
+          </a>
           <p class="contact__text">Бесплатно для абонентов МТС, Билайн, Мегафон, Теле2</p>
         </div>
-        <div class="main-footer__item contact">
-          <a class="contact-link contact-link--long" href="tel:+78001112233">8 800 111 22 33</a>
+
+        <div class="main-footer__item contact contact--phone">
+          <a class="contact__link contact__link--long" href="tel:+78001112233">
+            <svg class="contact__icon" width="16" height="16">
+              <use xlink:href="#telephone"></use>
+            </svg>
+            <span>8 800 111 22 33</span>
+          </a>
           <p class="contact__text">Бесплатный для всех городов России</p>
          </div>
-        <div class="main-footer__item social">
+
+        <div class="main-footer__item main-footer__item--social social">
           <ul class="social__list">
             <li class="social__item">
               <a href="#" class="social__link" aria-label="Лига Банк в фейсбук">

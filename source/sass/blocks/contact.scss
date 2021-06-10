@@ -1,0 +1,35 @@
+.contact {
+  padding-left: 30px;
+
+  &--mobile {
+    width: 197px;
+  }
+
+  &--phone {
+    width: 155px;
+  }
+}
+
+.contact__link {
+  position: relative;
+
+  font-size: $link-font-size;
+  line-height: 1.4;
+  font-weight: 500;
+  text-decoration: none;
+  color: $text-clr-basic;
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
+}
+
+.contact__icon {
+  position: absolute;
+  top: 2px;
+  left: -30px;
+}
