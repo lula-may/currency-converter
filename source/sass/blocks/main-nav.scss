@@ -1,0 +1,34 @@
+.main-nav__list {
+  @include list-reset();
+
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.main-nav__item {
+  margin-right: 25px;
+}
+
+.main-nav__link {
+  color: inherit;
+  text-decoration: none;
+
+  &--current {
+    color: $bg-dark;
+  }
+
+  &:visited {
+    color: inherit;
+  }
+}
+
+.main-nav__link[href] {
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
+}

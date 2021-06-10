@@ -1,0 +1,29 @@
+.main-header {
+  padding-top: 27px;
+  padding-bottom: 35px;
+
+  font-size: $link-font-size;
+
+  background-color: $bg-light;
+}
+
+.main-header__wrapper {
+  @include container();
+
+  display: flex;
+  align-items: center;
+}
+
+.main-header__logo {
+  display: block;
+  margin-right: 58px;
+  margin-bottom: 5px;
+}
+
+.main-header__nav {
+  width: 670px;
+}
+
+.main-header__user-nav {
+  width: 210px;
+}
