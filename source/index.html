@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html class="page" lang="ru">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Лига Банк | Конвертер валют</title>
     <link rel="stylesheet" href="css/style.css">
   </head>
-  <body>
+  <body class="page__body">
     <svg width="0" height="0" class="hidden">
       <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 22" id="login">
         <path d="M2.222 14.3h2.222v5.5h13.334V2.2H4.444v5.5H2.222V1.1c0-.292.117-.572.326-.778.208-.206.49-.322.785-.322H18.89c.295 0 .577.116.786.322.208.206.325.486.325.778v19.8c0 .292-.117.572-.325.778a1.117 1.117 0 01-.786.322H3.333c-.294 0-.577-.116-.785-.322a1.095 1.095 0 01-.326-.778v-6.6zM8.89 9.9V6.6l5.555 4.4-5.555 4.4v-3.3H0V9.9h8.889z" fill="#1F1E25"></path>
@@ -47,12 +47,12 @@
     <svg class="icon" width="" height=""><use xlink:href="#arrow-right"></use></svg>
     <svg class="icon" width="" height=""><use xlink:href="#calendar"></use></svg>
      -->
-    <header class="page-header container">
-      <div class="page-header__wrapper">
+    <header class="page__header main-header">
+      <div class="main-header__wrapper">
         <a href="#" class="logo" aria-label="На главную">
           <img class="logo__image" src="img/logo.svg" width="150" height="25" alt="Логотип Лига Банк" >
         </a>
-        <nav class="page-header__nav main-nav">
+        <nav class="main-header__nav main-nav">
           <ul class="main-nav__list">
             <li class="main-nav__item">
               <a href="#" class="main-nav__link">Услуги</a>
@@ -81,14 +81,14 @@
         </ul>
       </div>
     </header>
-    <main>
-      <article class="hero container">
+    <main class="page__main">
+      <article class="hero">
         <h2 class="hero__title">Лига Банк</h2>
         <p class="hero__text">Кредиты на любой случай</p>
         <a class="hero__link" href="#">Рассчитать кредит</a>
       </article>
 
-      <section class="converter container">
+      <section class="converter">
         <h1 class="page-title">Конвертер валют</h1>
         <form action="#" class="convert-form" method="GET">
           <p class="convert-form__field field">
@@ -123,7 +123,7 @@
         </form>
       </section>
 
-      <section class="history container">
+      <section class="history">
         <h2 class="history__title">История конвертации</h2>
           <ul class="history__list history__list--left">
             <li class="history__item operation">
@@ -203,9 +203,9 @@
       </section>
     </main>
 
-    <footer class="page-footer container">
-      <div class="page-footer__wrapper">
-        <div class="page-footer__item info">
+    <footer class="page__footer main-footer">
+      <div class="main-footer__wrapper">
+        <div class="main-footer__item info">
           <a href="#" class="logo" aria-label="На главную">
             <img class="logo__image" src="img/logo.svg" width="150" height="25" alt="Логотип Лига Банк" >
           </a>
@@ -214,7 +214,7 @@
           <p class="info__text">&copy; Лига Банк, 2019</p>
         </div>
 
-        <div class="page-footer__item footer-nav">
+        <div class="main-footer__item footer-nav">
           <ul class="footer-nav__list">
             <li class="footer-nav__item"><a href="#" class="footer-nav__link">Услуги</a></li>
             <li class="footer-nav__item"><a href="#" class="footer-nav__link">Рассчитать кредит</a></li>
@@ -223,15 +223,15 @@
           </ul>
         </div>
 
-        <div class="page-footer__item contact">
+        <div class="main-footer__item contact">
           <a class="contact-link contact-link--short" href="tel:0904">*0904</a>
           <p class="contact__text">Бесплатно для абонентов МТС, Билайн, Мегафон, Теле2</p>
         </div>
-        <div class="page-footer__item contact">
+        <div class="main-footer__item contact">
           <a class="contact-link contact-link--long" href="tel:+78001112233">8 800 111 22 33</a>
           <p class="contact__text">Бесплатный для всех городов России</p>
          </div>
-        <div class="page-footer__item social">
+        <div class="main-footer__item social">
           <ul class="social__list">
             <li class="social__item">
               <a href="#" class="social__link" aria-label="Лига Банк в фейсбук">
