@@ -1,0 +1,55 @@
+.history {
+  margin-bottom: 110px;
+}
+
+.history__wrapper {
+  @include container();
+  padding: 40px 70px;
+
+  background-color: $bg-light;
+}
+
+.history__title {
+  margin: 0;
+  margin-bottom: 15px;
+  font-size: $font-size-subheading;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.history__container {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 35px;
+  padding-bottom: 25px;
+
+  background-image: url("../img/line.png");
+  background-repeat: repeat-y;
+  background-position: top center;
+}
+
+.history__list {
+  @include list-reset();
+
+  width: 455px;
+
+  &--right {
+    padding-left: 65px;
+  }
+}
+
+.history__item {
+  margin-bottom: 23px;
+}
+
+.history__button {
+  min-width: 198px;
+  min-height: 51px;
+
+  font-size: $font-size-link;
+  line-height: normal;
+  font-weight: 500;
+  color: $bg-light;
+
+  background-color: $bg-dark;
+}
