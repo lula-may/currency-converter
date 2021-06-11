@@ -19,8 +19,8 @@
 
 // TYPOGRAPHY STYLES
 @mixin basic-text() {
-  font-family: $basic-font;
-  font-size: $basic-font-size;
+  font-family: $font-basic;
+  font-size: $font-size-basic;
   line-height: 1.3;
   font-weight: 400;
   color: $text-clr-basic;
@@ -28,6 +28,6 @@
 
 // LAYOUT STYLES
 @mixin container() {
-  width: $basic-width;
+  width: $width-basic;
   margin: 0 auto;
 }

@@ -23,7 +23,7 @@
   margin: 0;
   margin-bottom: 25px;
 
-  font-size: $basic-font-size * 3;
+  font-size: $font-size-basic * 3;
   line-height: normal;
   font-weight: bold;
   color: $bg-light
@@ -33,7 +33,7 @@
   margin: 0;
   margin-bottom: 40px;
 
-  font-size: $label-font-size;
+  font-size: $font-size-label;
   line-height: normal;
   font-weight: normal;
   color: $text-clr-light;
@@ -42,7 +42,7 @@
 .hero__button {
   padding: 15px 36px 17px;
 
-  font-size: $basic-font;
+  font-size: $font-basic;
   line-height: normal;
   font-weight: 500;
   color: $text-clr-basic;
