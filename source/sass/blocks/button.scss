@@ -1,8 +1,6 @@
 .button {
   @include button-reset();
-  display: inline-block;
 
-  vertical-align: middle;
   text-align: center;
   text-decoration: none;
 
