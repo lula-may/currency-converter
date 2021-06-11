@@ -1,12 +1,12 @@
 .converter {
   @include container();
 
-  margin-bottom: 100px;
+  margin-bottom: 85px;
 }
 
 .converter__title {
   margin: 0;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
 
   font-size: $font-size-heading;
   font-weight: bold;

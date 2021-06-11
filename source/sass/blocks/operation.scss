@@ -1,0 +1,16 @@
+.operation__date {
+  margin-right: 36px;
+}
+
+.operation__sum {
+  &--sale {
+    padding-right: 55px;
+    padding-bottom: 2px;
+    margin-right: 5px;
+
+    background-image: url("../img/arrow-right.svg");
+    background-repeat: no-repeat;
+    background-position: 100% 70%;
+    background-size: 45px 18px;
+  }
+}

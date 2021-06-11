@@ -17,8 +17,11 @@
   &:active {
     opacity: 0.3;
   }
+}
 
-  span {
-    margin-left: 10px;
-  }
+.user-nav__icon {
+  width: 21px;
+  height: 23px;
+  padding-bottom: 3px;
+  margin-right: 10px;
 }

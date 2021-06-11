@@ -2,13 +2,10 @@
 .social__list {
   @include list-reset();
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
-  margin-top: 2px;
-}
-
-.social__item {
-  margin-left: 15px;
+  margin-top: 12px;
 }
 
 .social__link {

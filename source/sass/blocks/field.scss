@@ -1,6 +1,6 @@
 .field__label {
   display: block;
-  margin-bottom: 24px;
+  margin-bottom: 22px;
 
   font-size: $font-size-label;
   line-height: 1.4;
@@ -29,10 +29,25 @@
   }
 
   &--select {
+    font: inherit;
     width: 120px;
-    padding-left: 18px;
+    padding-left: 16px;
     padding-right: 16px;
     font-size: 30px;
     font-weight: normal;
+
+    appearance: none;
+    background-image: url("../img/arrow-down.svg");
+    background-position: 85% 50%;
+    background-repeat: no-repeat;
+  }
+
+  &--date {
+    padding-right: 54px;
+    padding-top: 5px;
+
+    background-image: url("../img/calendar.svg");
+    background-position: 95% 50%;
+    background-repeat: no-repeat;
   }
 }

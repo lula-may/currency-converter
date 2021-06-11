@@ -1,12 +1,12 @@
 .hero {
   min-height: 400px;
-  margin-bottom: 60px;
+  margin-bottom: 46px;
 
   background-color: $bg-dark;
   background-image: url("../img/cards.png");
   background-repeat: no-repeat;
   background-position: center bottom;
-  background-size: 1170px 400px;
+  background-size: 1366px 400px;
 
   @media (min-resolution: 2dppx) {
   background-image: url("../img/cards@2x.png");
@@ -16,12 +16,12 @@
 .hero__wrapper {
   @include container();
 
-  padding: 115px 170px;
+  padding: 100px 170px;
 }
 
 .hero__title {
   margin: 0;
-  margin-bottom: 25px;
+  margin-bottom: 8px;
 
   font-size: $font-size-basic * 3;
   line-height: normal;
@@ -31,7 +31,7 @@
 
 .hero__text {
   margin: 0;
-  margin-bottom: 40px;
+  margin-bottom: 33px;
 
   font-size: $font-size-label;
   line-height: normal;
@@ -40,9 +40,9 @@
 }
 
 .hero__button {
-  padding: 15px 36px 17px;
+  padding: 15px 36px 16px;
 
-  font-size: $font-basic;
+  font-size: $font-size-basic;
   line-height: normal;
   font-weight: 500;
   color: $text-clr-basic;

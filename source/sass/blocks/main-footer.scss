@@ -1,5 +1,5 @@
 .main-footer {
-  padding-top: 50px;
+  padding-top: 48px;
   padding-bottom: 40px;
 
   font-size: $font-size-footer;
@@ -13,21 +13,27 @@
   @include container();
 
   display: flex;
-  justify-content: space-between;
 }
 
 .main-footer__logo {
   display: block;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .main-footer__item {
   &--info {
-      width: 253px;
+      width: 257px;
+      margin-right: 76px;
   }
 
   &--nav {
-    width: 144px;
+    width: 150px;
+    margin-right: 74px;
+  }
+
+  &--social {
+    width: 102px;
+    margin-left: auto;
   }
 }
 
