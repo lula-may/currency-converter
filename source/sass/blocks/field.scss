@@ -1,0 +1,38 @@
+.field__label {
+  display: block;
+  margin-bottom: 24px;
+
+  font-size: $label-font-size;
+  line-height: 1.4;
+}
+
+.field__wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.field__control {
+  height: 60px;
+
+  line-height: 1.4;
+  color: $text-clr-input;
+  text-align: center;
+
+  border: 1px solid $text-clr-basic;
+  border-radius: 4px;
+
+  &--input {
+    width: 390px;
+
+    font-size: $input-font-size;
+    font-weight: 500;
+  }
+
+  &--select {
+    width: 120px;
+    padding-left: 18px;
+    padding-right: 16px;
+    font-size: 30px;
+    font-weight: normal;
+  }
+}

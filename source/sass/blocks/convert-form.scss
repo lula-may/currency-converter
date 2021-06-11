@@ -1,0 +1,27 @@
+.convert-form__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 85px;
+}
+
+.convert-form__field {
+  width: 525px;
+}
+
+.convert-form__sign {
+  margin-top: 50px;
+}
+
+.convert-form__button {
+  min-width: 382px;
+  min-height: 60px;
+
+  font-size: $basic-font-size;
+  line-height: 1.4;
+  font-weight: 500;
+  color: $bg-light;
+
+  background-color: $bg-dark;
+}

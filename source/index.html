@@ -83,43 +83,54 @@
     </header>
     <main class="page__main">
       <article class="hero">
-        <h2 class="hero__title">Лига Банк</h2>
-        <p class="hero__text">Кредиты на любой случай</p>
-        <a class="hero__link" href="#">Рассчитать кредит</a>
+        <div class="hero__wrapper">
+          <h2 class="hero__title">Лига Банк</h2>
+          <p class="hero__text">Кредиты на любой случай</p>
+          <a class="hero__button button" href="#">Рассчитать кредит</a>
+        </div>
       </article>
 
       <section class="converter">
-        <h1 class="page-title">Конвертер валют</h1>
+        <h1 class="converter__title">Конвертер валют</h1>
         <form action="#" class="convert-form" method="GET">
-          <p class="convert-form__field field">
-            <label class="field__label" for="sale">У меня есть</label>
-            <input class="field__input" type="number" id="sale" name="sale">
-            <label class="visually-hidden" for="currency-sale">Выберите валюту</label>
-            <select name="currency" id="currency-sale">
-              <option value="rub" selected>RUB</option>
-              <option value="usd">USD</option>
-              <option value="eur">EUR</option>
-              <option value="gbr">GBR</option>
-              <option value="cny">CNY</option>
-            </select>
-          </p>
-          <p class="convert-form__field field">
-            <label class="field__label" for="buy">Хочу приобрести</label>
-            <input class="field__input" type="number" id="buy" name="buy">
-            <label class="visually-hidden" for="currency-buy">Выберите валюту</label>
-            <select name="currency" id="currency-buy">
-              <option value="rub">RUB</option>
-              <option value="usd" selected>USD</option>
-              <option value="eur">EUR</option>
-              <option value="gbr">GBR</option>
-              <option value="cny">CNY</option>
-            </select>
-          </p>
-          <p class="convert-form__field field">
-            <label class="visually-hidden" for="date">Дата для расчета курса валют</label>
-            <input class="field__input" type="text" id="date" name="date" datetime="2020-12-01" value="1.12.2020">
-          </p>
-          <button type="submit">Сохранить результат</button>
+          <div class="convert-form__wrapper">
+            <div class="convert-form__field field">
+              <label class="field__label" for="sale">У меня есть</label>
+              <div class="field__wrapper">
+                <input class="field__control field__control--input" type="number" id="sale" name="sale" value="1000">
+                <select class="field__control field__control--select" name="currency" id="currency-sale">
+                  <option value="rub" selected>RUB</option>
+                  <option value="usd">USD</option>
+                  <option value="eur">EUR</option>
+                  <option value="gbr">GBR</option>
+                  <option value="cny">CNY</option>
+                </select>
+              </div>
+              <label class="visually-hidden" for="currency-sale">Выберите валюту</label>
+            </div>
+            <img class="convert-form__sign" src="img/arrows.svg" width="50" height="34" alt="Конвертировать валюту">
+            <div class="convert-form__field field">
+              <label class="field__label" for="buy">Хочу приобрести</label>
+              <div class="field__wrapper">
+                <input class="field__control field__control--input" type="number" id="buy" name="buy" value="13.1234">
+                <select class="field__control field__control--select" name="currency" id="currency-buy">
+                  <option value="rub">RUB</option>
+                  <option value="usd" selected>USD</option>
+                  <option value="eur">EUR</option>
+                  <option value="gbr">GBR</option>
+                  <option value="cny">CNY</option>
+                </select>
+              </div>
+              <label class="visually-hidden" for="currency-buy">Выберите валюту</label>
+            </div>
+          </div>
+          <div class="convert-form__wrapper">
+            <p class="convert-form__field field">
+              <label class="visually-hidden" for="date">Дата для расчета курса валют</label>
+              <input class="field__control field__control--input" type="text" id="date" name="date" value="1.12.2020">
+            </p>
+            <button class="convert-form__button button" type="submit">Сохранить результат</button>
+          </div>
         </form>
       </section>
 
@@ -127,35 +138,35 @@
         <h2 class="history__title">История конвертации</h2>
           <ul class="history__list history__list--left">
             <li class="history__item operation">
-              <span class="operation__date" datetime="2020-11-25">25.11.2020</span>
+              <span class="operation__date">25.11.2020</span>
               <span class="operation__sum operation__sum--sold">1000 </span>
               <span class="operation__currency operation__currency--sale">RUB</span>
               <span class="operation__sum operation__sum--sold">13,1234 </span>
               <span class="operation__currency operation__currency--sale">USD</span>
             </li>
             <li class="history__item operation">
-              <span class="operation__date" datetime="2020-11-25">25.11.2020</span>
+              <span class="operation__date">25.11.2020</span>
               <span class="operation__sum operation__sum--sold">1000 </span>
               <span class="operation__currency operation__currency--sale">RUB</span>
               <span class="operation__sum operation__sum--sold">13,1234 </span>
               <span class="operation__currency operation__currency--sale">USD</span>
             </li>
             <li class="history__item operation">
-              <span class="operation__date" datetime="2020-11-25">25.11.2020</span>
+              <span class="operation__date">25.11.2020</span>
               <span class="operation__sum operation__sum--sold">1000 </span>
               <span class="operation__currency operation__currency--sale">RUB</span>
               <span class="operation__sum operation__sum--sold">13,1234 </span>
               <span class="operation__currency operation__currency--sale">USD</span>
             </li>
             <li class="history__item operation">
-              <span class="operation__date" datetime="2020-11-25">25.11.2020</span>
+              <span class="operation__date">25.11.2020</span>
               <span class="operation__sum operation__sum--sold">1000 </span>
               <span class="operation__currency operation__currency--sale">RUB</span>
               <span class="operation__sum operation__sum--sold">13,1234 </span>
               <span class="operation__currency operation__currency--sale">USD</span>
             </li>
             <li class="history__item operation">
-              <span class="operation__date" datetime="2020-11-25">25.11.2020</span>
+              <span class="operation__date">25.11.2020</span>
               <span class="operation__sum operation__sum--sold">1000 </span>
               <span class="operation__currency operation__currency--sale">RUB</span>
               <span class="operation__sum operation__sum--sold">13,1234 </span>
@@ -164,35 +175,35 @@
           </ul>
           <ul class="history__list history__list--right">
             <li class="history__item operation">
-              <span class="operation__date" datetime="2020-11-25">25.11.2020</span>
+              <span class="operation__date">25.11.2020</span>
               <span class="operation__sum operation__sum--sold">1000 </span>
               <span class="operation__currency operation__currency--sale">RUB</span>
               <span class="operation__sum operation__sum--sold">13,1234 </span>
               <span class="operation__currency operation__currency--sale">USD</span>
             </li>
             <li class="history__item operation">
-              <span class="operation__date" datetime="2020-11-25">25.11.2020</span>
+              <span class="operation__date">25.11.2020</span>
               <span class="operation__sum operation__sum--sold">1000 </span>
               <span class="operation__currency operation__currency--sale">RUB</span>
               <span class="operation__sum operation__sum--sold">13,1234 </span>
               <span class="operation__currency operation__currency--sale">USD</span>
             </li>
             <li class="history__item operation">
-              <span class="operation__date" datetime="2020-11-25">25.11.2020</span>
+              <span class="operation__date">25.11.2020</span>
               <span class="operation__sum operation__sum--sold">1000 </span>
               <span class="operation__currency operation__currency--sale">RUB</span>
               <span class="operation__sum operation__sum--sold">13,1234 </span>
               <span class="operation__currency operation__currency--sale">USD</span>
             </li>
             <li class="history__item operation">
-              <span class="operation__date" datetime="2020-11-25">25.11.2020</span>
+              <span class="operation__date">25.11.2020</span>
               <span class="operation__sum operation__sum--sold">1000 </span>
               <span class="operation__currency operation__currency--sale">RUB</span>
               <span class="operation__sum operation__sum--sold">13,1234 </span>
               <span class="operation__currency operation__currency--sale">USD</span>
             </li>
             <li class="history__item operation">
-              <span class="operation__date" datetime="2020-11-25">25.11.2020</span>
+              <span class="operation__date">25.11.2020</span>
               <span class="operation__sum operation__sum--sold">1000 </span>
               <span class="operation__currency operation__currency--sale">RUB</span>
               <span class="operation__sum operation__sum--sold">13,1234 </span>

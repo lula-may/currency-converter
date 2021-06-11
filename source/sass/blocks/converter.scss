@@ -1,0 +1,14 @@
+.converter {
+  @include container();
+
+  margin-bottom: 100px;
+}
+
+.converter__title {
+  margin: 0;
+  margin-bottom: 60px;
+
+  font-size: $heading-font-size;
+  font-weight: bold;
+  line-height: 1.4;
+}
