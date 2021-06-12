@@ -1,10 +1,22 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Main from "../main/main.jsx";
+import {propOpertaions} from "../props.js";
 
-const App = () => {
+const App = (props) => {
+  const {rate, operations} = props;
   return (
-    <Main />
+    <Main
+      rate={rate}
+      operations={operations}
+    />
   );
 }
 
+App.propTypes = {
+  rate: PropTypes.object.isRequired,
+  operations: propOpertaions,
+}
+
 export default App;
+
