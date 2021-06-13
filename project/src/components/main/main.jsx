@@ -3,13 +3,13 @@ import React, {Fragment} from "react";
 import PropTypes from "prop-types";
 import Converter from "../converter/converter.jsx";
 import History from "../history/history.jsx";
+import withCurrentOperation from "../../hocs/with-current-operation/with-current-operation.jsx";
 import {propOpertaions} from "../props.js";
-import {getCurrentRate, convertSaleSum} from "../../utils.js";
+
+const ConverterWrapped = withCurrentOperation(Converter);
 
 const Main = (props) => {
   const {rate, operations, saleSum, saleCurrency, buyCurrency, date} = props;
-  const currentRate = getCurrentRate(rate, saleCurrency, buyCurrency);
-  const buySum = convertSaleSum(saleSum, currentRate);
   return (
     <Fragment>
       <header className="page__header main-header">
@@ -55,14 +55,13 @@ const Main = (props) => {
         </div>
       </article>
 
-      <Converter
+      <ConverterWrapped
         buyCurrency={buyCurrency}
-        buySum={buySum}
-        currentRate={currentRate}
         date={date}
         rate={rate}
         saleCurrency={saleCurrency}
         saleSum={saleSum}
+        onSubmit={(operation) => console.log(operation)}
       />
       <History operations={operations} />
     </main>
