@@ -2,6 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/app/app.jsx';
 
+const Currency = {
+  CNY: 'CNY',
+  EUR: 'EUR',
+  GBP: 'GBP',
+  RUB: 'RUB',
+  USD: 'USD',
+};
+
 const rate = {
   "CNYCNY": "1.000000",
   "CNYEUR": "0.128256",
@@ -97,9 +105,21 @@ const operations = [
   },
 ]
 
+const DEFAULT_SALE_CURRENCY = Currency.RUB;
+const DEFAULT_SALE_SUM = 1000;
+const DEFAULT_BUY_CURRENCY = Currency.USD;
+const DEFAULT_DATE = new Date().toLocaleDateString('en-GB');
+
 ReactDOM.render(
   <React.StrictMode>
-    <App rate={rate} operations={operations}/>
+    <App
+      buyCurrency={DEFAULT_BUY_CURRENCY}
+      date={DEFAULT_DATE}
+      operations={operations}
+      rate={rate}
+      saleCurrency={DEFAULT_SALE_CURRENCY}
+      saleSum={DEFAULT_SALE_SUM}
+    />
   </React.StrictMode>,
   document.getElementById('root')
 );

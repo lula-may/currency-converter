@@ -4,8 +4,12 @@ import PropTypes from "prop-types";
 import Converter from "../converter/converter.jsx";
 import History from "../history/history.jsx";
 import {propOpertaions} from "../props.js";
+import {getCurrentRate, convertSaleSum} from "../../utils.js";
 
-const Main = ({rate, operations}) => {
+const Main = (props) => {
+  const {rate, operations, saleSum, saleCurrency, buyCurrency, date} = props;
+  const currentRate = getCurrentRate(rate, saleCurrency, buyCurrency);
+  const buySum = convertSaleSum(saleSum, currentRate);
   return (
     <Fragment>
       <header className="page__header main-header">
@@ -51,7 +55,15 @@ const Main = ({rate, operations}) => {
         </div>
       </article>
 
-      <Converter rate={rate} />
+      <Converter
+        buyCurrency={buyCurrency}
+        buySum={buySum}
+        currentRate={currentRate}
+        date={date}
+        rate={rate}
+        saleCurrency={saleCurrency}
+        saleSum={saleSum}
+      />
       <History operations={operations} />
     </main>
 
@@ -128,8 +140,12 @@ const Main = ({rate, operations}) => {
 }
 
 Main.propTypes = {
-  rate: PropTypes.object.isRequired,
+  buyCurrency: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
   operations: propOpertaions,
+  rate: PropTypes.object.isRequired,
+  saleCurrency: PropTypes.string.isRequired,
+  saleSum: PropTypes.number.isRequired,
 };
 
 export default Main;

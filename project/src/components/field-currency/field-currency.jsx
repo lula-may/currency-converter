@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const InputField = (props) => {
+const FieldCurrency = (props) => {
   const {name, currency, value, onCurrencyChange, onValueChange, labelText} = props;
 
   return (
@@ -22,7 +22,7 @@ const InputField = (props) => {
   );
 }
 
-InputField.propTypes = {
+FieldCurrency.propTypes = {
   currency: PropTypes.string.isRequired,
   labelText: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
@@ -31,4 +31,4 @@ InputField.propTypes = {
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
 };
 
-export default InputField;
+export default FieldCurrency;

@@ -4,18 +4,26 @@ import Main from "../main/main.jsx";
 import {propOpertaions} from "../props.js";
 
 const App = (props) => {
-  const {rate, operations} = props;
+  const {buyCurrency, date, saleSum, saleCurrency, rate, operations} = props;
   return (
     <Main
-      rate={rate}
+      buyCurrency={buyCurrency}
+      date={date}
       operations={operations}
+      rate={rate}
+      saleCurrency={saleCurrency}
+      saleSum={saleSum}
     />
   );
 }
 
 App.propTypes = {
-  rate: PropTypes.object.isRequired,
+  buyCurrency: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
   operations: propOpertaions,
+  rate: PropTypes.object.isRequired,
+  saleCurrency: PropTypes.string.isRequired,
+  saleSum: PropTypes.number.isRequired,
 }
 
 export default App;

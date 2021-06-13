@@ -1,43 +1,42 @@
 import React, {PureComponent} from "react";
-import InputField from "../input-field/input-field";
-
-const getCurrentRate = (rate, saleCurrency, buyCurrency) => {
-  return Number(rate[`${saleCurrency}${buyCurrency}`]);
-};
+import FieldCurrency from "../field-currency/field-currency";
+import {getCurrentRate, convertBuySum, convertSaleSum} from "../../utils";
 
 export default class Converter extends PureComponent {
   constructor(props) {
     super(props);
+    const {saleSum, saleCurrency, buySum, buyCurrency, date, rate} = props;
     this.state = {
-      saleSum: 1000,
-      saleCurrency: 'RUB',
-      buySum: 13.1234,
-      buyCurrency: 'USD',
-      date: '1.12.2020',
-      currentRate: getCurrentRate(props.rate, 'RUB', 'USD'),
+      saleSum,
+      saleCurrency,
+      buySum,
+      buyCurrency,
+      date,
+      currentRate: getCurrentRate(rate, saleCurrency, buyCurrency),
     }
 
-    this._onBuyCurrencyChange = this._onBuyCurrencyChange.bind(this);
-    this._onBuySumChange = this._onBuySumChange.bind(this);
-    this._onSaleCurrencyChange = this._onSaleCurrencyChange.bind(this);
-    this._onSaleSumChange = this._onSaleSumChange.bind(this);
+    this._handleBuyCurrencyChange = this._handleBuyCurrencyChange.bind(this);
+    this._handleBuySumChange = this._handleBuySumChange.bind(this);
+    this._handleSaleCurrencyChange = this._handleSaleCurrencyChange.bind(this);
+    this._handleSaleSumChange = this._handleSaleSumChange.bind(this);
   }
 
-  _onBuySumChange(evt) {
+  _handleBuySumChange(evt) {
+    const {currentRate} = this.state;
     const buySum = Number(evt.target.value) || '';
-    const saleSum = (buySum) ? (buySum / this.state.currentRate).toFixed(2) : '';
+    const saleSum = convertBuySum(buySum, currentRate);
     this.setState({
       buySum,
       saleSum
     });
   }
 
-  _onBuyCurrencyChange(evt) {
+  _handleBuyCurrencyChange(evt) {
     const {saleCurrency, buySum} = this.state;
     const {rate} = this.props;
     const buyCurrency = evt.target.value;
     const currentRate = getCurrentRate(rate, saleCurrency, buyCurrency);
-    const saleSum = (buySum) ? (buySum / currentRate).toFixed(2) : '';
+    const saleSum = convertBuySum(buySum, currentRate);
     this.setState({
       buyCurrency,
       currentRate,
@@ -45,21 +44,22 @@ export default class Converter extends PureComponent {
     });
   }
 
-  _onSaleSumChange(evt) {
+  _handleSaleSumChange(evt) {
+    const {currentRate} = this.state;
     const saleSum = Number(evt.target.value) || '';
-    const buySum = (saleSum) ? (saleSum * this.state.currentRate).toFixed(4) : '';
+    const buySum = convertSaleSum(saleSum, currentRate);
     this.setState({
       buySum,
       saleSum,
     });
   }
 
-  _onSaleCurrencyChange(evt) {
+  _handleSaleCurrencyChange(evt) {
     const {buyCurrency, saleSum} = this.state;
     const {rate} = this.props;
     const saleCurrency = evt.target.value;
     const currentRate = getCurrentRate(rate, saleCurrency, buyCurrency);
-    const buySum = (saleSum) ? (saleSum / currentRate).toFixed(2) : '';
+    const buySum = convertSaleSum(saleSum, currentRate);
     this.setState({
       saleCurrency,
       currentRate,
@@ -74,22 +74,24 @@ export default class Converter extends PureComponent {
           <h1 className="converter__title">Конвертер валют</h1>
           <form action="#" className="convert-form" method="GET">
             <div className="convert-form__wrapper">
-              <InputField
+              <FieldCurrency
+
                 name="sale"
                 labelText="У меня есть"
                 currency={saleCurrency}
                 value={saleSum}
-                onCurrencyChange={this._onSaleCurrencyChange}
-                onValueChange={this._onSaleSumChange}
+                onCurrencyChange={this._handleSaleCurrencyChange}
+                onValueChange={this._handleSaleSumChange}
               />
               <img className="convert-form__sign" src="img/arrows.svg" width="50" height="34" alt="Конвертировать валюту"/>
-              <InputField
+              <FieldCurrency
+
                 name="buy"
                 labelText="Хочу купить"
                 currency={buyCurrency}
                 value= {buySum}
-                onCurrencyChange={this._onBuyCurrencyChange}
-                onValueChange={this._onBuySumChange}
+                onCurrencyChange={this._handleBuyCurrencyChange}
+                onValueChange={this._handleBuySumChange}
               />
             </div>
             <div className="convert-form__wrapper">
