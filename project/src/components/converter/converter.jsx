@@ -1,5 +1,5 @@
 import React, {PureComponent} from "react";
-import FieldCurrency from "../field-currency/field-currency";
+import FieldsGroup from "../fields-group/fields-group";
 import {getCurrentRate, convertBuySum, convertSaleSum} from "../../utils";
 
 export default class Converter extends PureComponent {
@@ -73,27 +73,16 @@ export default class Converter extends PureComponent {
       <section className="converter">
           <h1 className="converter__title">Конвертер валют</h1>
           <form action="#" className="convert-form" method="GET">
-            <div className="convert-form__wrapper">
-              <FieldCurrency
-
-                name="sale"
-                labelText="У меня есть"
-                currency={saleCurrency}
-                value={saleSum}
-                onCurrencyChange={this._handleSaleCurrencyChange}
-                onValueChange={this._handleSaleSumChange}
+              <FieldsGroup
+                buyCurrency={buyCurrency}
+                buySum={buySum}
+                onBuyCurrencyChange={this._handleBuyCurrencyChange}
+                onBuySumChange={this._handleBuySumChange}
+                onSaleCurrencyChange={this._handleSaleCurrencyChange}
+                onSaleSumChange={this._handleSaleSumChange}
+                saleCurrency={saleCurrency}
+                saleSum={saleSum}
               />
-              <img className="convert-form__sign" src="img/arrows.svg" width="50" height="34" alt="Конвертировать валюту"/>
-              <FieldCurrency
-
-                name="buy"
-                labelText="Хочу купить"
-                currency={buyCurrency}
-                value= {buySum}
-                onCurrencyChange={this._handleBuyCurrencyChange}
-                onValueChange={this._handleBuySumChange}
-              />
-            </div>
             <div className="convert-form__wrapper">
               <p className="convert-form__field field">
                 <label className="visually-hidden" htmlFor="date">Дата для расчета курса валют</label>
