@@ -19,7 +19,7 @@ const App = (props) => {
 
 App.propTypes = {
   buyCurrency: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
+  date: PropTypes.instanceOf(Date).isRequired,
   operations: propOpertaions,
   rate: PropTypes.object.isRequired,
   saleCurrency: PropTypes.string.isRequired,

@@ -108,7 +108,7 @@ const operations = [
 const DEFAULT_SALE_CURRENCY = Currency.RUB;
 const DEFAULT_SALE_SUM = 1000;
 const DEFAULT_BUY_CURRENCY = Currency.USD;
-const DEFAULT_DATE = new Date().toLocaleDateString('en-GB');
+const DEFAULT_DATE = new Date();
 
 ReactDOM.render(
   <React.StrictMode>

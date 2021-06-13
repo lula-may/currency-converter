@@ -1,6 +1,10 @@
 import React, {PureComponent} from "react";
 import FieldsGroup from "../fields-group/fields-group";
 import {getCurrentRate, convertBuySum, convertSaleSum} from "../../utils";
+import FieldDate from "../field-date/field-date";
+// import withDatepicker from "../../hocs/with-datepicker/with-datepicker";
+
+// const FieldDateWrapped = withDatepicker(FieldDate);
 
 export default class Converter extends PureComponent {
   constructor(props) {
@@ -68,7 +72,7 @@ export default class Converter extends PureComponent {
   }
 
   render() {
-    const {buySum, buyCurrency, saleSum, saleCurrency} = this.state;
+    const {buySum, buyCurrency,date, saleSum, saleCurrency} = this.state;
     return (
       <section className="converter">
           <h1 className="converter__title">Конвертер валют</h1>
@@ -84,10 +88,10 @@ export default class Converter extends PureComponent {
                 saleSum={saleSum}
               />
             <div className="convert-form__wrapper">
-              <p className="convert-form__field field">
-                <label className="visually-hidden" htmlFor="date">Дата для расчета курса валют</label>
-                <input className="field__control field__control--input field__control--date" type="text" id="date" name="date" defaultValue="1.12.2020" />
-              </p>
+              <FieldDate
+                date={date}
+                onDateChange={(newDate) => console.log("newDate: ", newDate)}
+              />
               <button className="convert-form__button button" type="submit">Сохранить результат</button>
             </div>
           </form>
