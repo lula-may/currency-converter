@@ -4,7 +4,7 @@ import {propOpertaions} from "../props";
 const GROUP_COUNT = 5;
 
 const History = (props) => {
-  const {operations} = props;
+  const {operations, onHistoryReset} = props;
   const firstGroupOperations = operations.slice(0,GROUP_COUNT);
   const secondGroupOperations = operations.slice(GROUP_COUNT);
   return (
@@ -21,7 +21,7 @@ const History = (props) => {
                 operations={secondGroupOperations}
               />
             </div>
-            <button className="history__button button" type="button">Очистить историю</button>
+            <button className="history__button button" onClick={onHistoryReset} type="button">Очистить историю</button>
         </div>
       </section>
   );

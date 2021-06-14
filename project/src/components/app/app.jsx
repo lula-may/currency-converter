@@ -11,6 +11,7 @@ const App = (props) => {
     rate,
     onConverterFormSubmit,
     onDateChange,
+    onHistoryReset,
     operations,
   } = props;
 
@@ -20,6 +21,7 @@ const App = (props) => {
       date={date}
       onConverterFormSubmit={onConverterFormSubmit}
       onDateChange={onDateChange}
+      onHistoryReset={onHistoryReset}
       operations={operations}
       rate={rate}
       saleCurrency={DEFAULT_SALE_CURRENCY}
@@ -41,12 +43,16 @@ const mapDispatchToProps = (dispatch) => ({
   onDateChange(date) {
     dispatch(ActionCreator.setDate(date))
   },
+  onHistoryReset() {
+    dispatch(ActionCreator.clearOperations())
+  },
 });
 
 App.propTypes = {
   date: PropTypes.instanceOf(Date).isRequired,
   onConverterFormSubmit: PropTypes.func.isRequired,
   onDateChange: PropTypes.func.isRequired,
+  onHistoryReset: PropTypes.func.isRequired,
   operations: propOpertaions,
   rate: PropTypes.object.isRequired,
 }

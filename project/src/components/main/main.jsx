@@ -13,6 +13,7 @@ const Main = (props) => {
     date,
     onConverterFormSubmit,
     onDateChange,
+    onHistoryReset,
     operations,
     perchaseCurrency,
     rate,
@@ -73,7 +74,9 @@ const Main = (props) => {
         saleCurrency={saleCurrency}
         saleSum={saleSum}
       />
-      <History operations={operations} />
+      <History
+        onHistoryReset={onHistoryReset}
+        operations={operations} />
     </main>
 
     <footer className="page__footer main-footer">
@@ -152,6 +155,7 @@ Main.propTypes = {
   date: PropTypes.instanceOf(Date).isRequired,
   onConverterFormSubmit: PropTypes.func.isRequired,
   onDateChange: PropTypes.func.isRequired,
+  onHistoryReset: PropTypes.func.isRequired,
   operations: propOpertaions,
   perchaseCurrency: PropTypes.string.isRequired,
   rate: PropTypes.object.isRequired,
