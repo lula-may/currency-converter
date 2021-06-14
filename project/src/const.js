@@ -1,0 +1,16 @@
+const API_KEY = `a005702a978fcb50d0d747ff0da0ec52`;
+const CURRENCIES = ['USD', 'RUB', 'EUR', 'GBP', 'CNY'];
+
+const Currency = {
+  CNY: 'CNY',
+  EUR: 'EUR',
+  GBP: 'GBP',
+  RUB: 'RUB',
+  USD: 'USD',
+};
+
+const DEFAULT_SALE_CURRENCY = Currency.RUB;
+const DEFAULT_SALE_SUM = 1000;
+const DEFAULT_PERCHASE_CURRENCY = Currency.USD;
+
+export {API_KEY, CURRENCIES, Currency, DEFAULT_PERCHASE_CURRENCY, DEFAULT_SALE_CURRENCY, DEFAULT_SALE_SUM};
