@@ -11,6 +11,8 @@ const ConverterWrapped = withCurrentOperation(Converter);
 const Main = (props) => {
   const {
     date,
+    hasError,
+    isLoading,
     onConverterFormSubmit,
     onDateChange,
     onHistoryReset,
@@ -64,9 +66,10 @@ const Main = (props) => {
           <a className="hero__button button" href="#">Рассчитать кредит</a>
         </div>
       </article>
-
       <ConverterWrapped
         date={date}
+        hasError={hasError}
+        isLoading={isLoading}
         onSubmit={onConverterFormSubmit}
         onDateChange={onDateChange}
         perchaseCurrency={perchaseCurrency}
@@ -76,7 +79,8 @@ const Main = (props) => {
       />
       <History
         onHistoryReset={onHistoryReset}
-        operations={operations} />
+        operations={operations}
+      />
     </main>
 
     <footer className="page__footer main-footer">
