@@ -11,8 +11,7 @@ export default class FieldDate extends PureComponent {
   }
 
   _applyFlatpick() {
-    const {date, onDateChange} = this.props;
-    console.log(date, onDateChange);
+    const {onDateChange} = this.props;
     const dateRef = this._ref.current;
 
     if (this._flatpickr) {
@@ -33,6 +32,10 @@ export default class FieldDate extends PureComponent {
   }
 
   componentDidMount() {
+    this._applyFlatpick();
+  }
+
+  componentDidUpdate() {
     this._applyFlatpick();
   }
 
@@ -57,4 +60,5 @@ export default class FieldDate extends PureComponent {
 
 FieldDate.propTypes = {
   date: PropTypes.instanceOf(Date).isRequired,
+  onDateChange: PropTypes.func.isRequired,
 };
