@@ -9,7 +9,16 @@ import {propOpertaions} from "../props.js";
 const ConverterWrapped = withCurrentOperation(Converter);
 
 const Main = (props) => {
-  const {rate, operations, saleSum, saleCurrency, buyCurrency, date} = props;
+  const {
+    date,
+    onConverterFormSubmit,
+    onDateChange,
+    operations,
+    perchaseCurrency,
+    rate,
+    saleSum,
+    saleCurrency,
+  } = props;
   return (
     <Fragment>
       <header className="page__header main-header">
@@ -56,12 +65,13 @@ const Main = (props) => {
       </article>
 
       <ConverterWrapped
-        buyCurrency={buyCurrency}
         date={date}
+        onSubmit={onConverterFormSubmit}
+        onDateChange={onDateChange}
+        perchaseCurrency={perchaseCurrency}
         rate={rate}
         saleCurrency={saleCurrency}
         saleSum={saleSum}
-        onSubmit={(operation) => console.log(operation)}
       />
       <History operations={operations} />
     </main>
@@ -139,9 +149,11 @@ const Main = (props) => {
 }
 
 Main.propTypes = {
-  buyCurrency: PropTypes.string.isRequired,
   date: PropTypes.instanceOf(Date).isRequired,
+  onConverterFormSubmit: PropTypes.func.isRequired,
+  onDateChange: PropTypes.func.isRequired,
   operations: propOpertaions,
+  perchaseCurrency: PropTypes.string.isRequired,
   rate: PropTypes.object.isRequired,
   saleCurrency: PropTypes.string.isRequired,
   saleSum: PropTypes.number.isRequired,
