@@ -19,3 +19,5 @@ export const extend = (a, b) => {
 export const generateId = () => Math.round(new Date() * Math.random());
 
 export const formatDate = (date) => flatpickr.formatDate(date, 'Y-m-d');
+
+export const isToday = (date) => (date.getDate() === new Date().getDate());
