@@ -1,100 +1,109 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
-import {getCurrentRate, convertBuySum, convertSaleSum} from "../../utils";
+import {generateId, getCurrentRate, convertPerchaseSum, convertSaleSum, formatDate} from "../../utils";
 
 const withCurrentOperation = (Component) => {
 
   class WithCurrentOperation extends PureComponent {
     constructor(props) {
       super(props);
-      const {saleSum, saleCurrency, buyCurrency, rate} = props;
-      const currentRate = getCurrentRate(rate, saleCurrency, buyCurrency);
+      const {saleSum, saleCurrency, perchaseCurrency, rate} = props;
+      const currentRate = getCurrentRate(rate, saleCurrency, perchaseCurrency);
 
       this.state = {
+        currentRate,
+        perchaseSum: convertSaleSum(saleSum, currentRate),
+        perchaseCurrency,
         saleSum,
         saleCurrency,
-        buySum: convertSaleSum(saleSum, currentRate),
-        buyCurrency,
-        currentRate,
       }
 
-      this._handleBuyCurrencyChange = this._handleBuyCurrencyChange.bind(this);
-      this._handleBuySumChange = this._handleBuySumChange.bind(this);
+      this._handleDateChange = this._handleDateChange.bind(this);
+      this._handleFormSubmit = this._handleFormSubmit.bind(this);
+      this._handlePerchaseCurrencyChange = this._handlePerchaseCurrencyChange.bind(this);
+      this._handlePerchaseSumChange = this._handlePerchaseSumChange.bind(this);
       this._handleSaleCurrencyChange = this._handleSaleCurrencyChange.bind(this);
       this._handleSaleSumChange = this._handleSaleSumChange.bind(this);
-      this._handleFormSubmit = this._handleFormSubmit.bind(this);
     }
 
-    _handleBuySumChange(evt) {
+    _handlePerchaseSumChange(evt) {
       const {currentRate} = this.state;
-      const buySum = Number(evt.target.value) || '';
-      const saleSum = convertBuySum(buySum, currentRate);
+      const perchaseSum = Number(evt.target.value) || '';
+      const saleSum = convertPerchaseSum(perchaseSum, currentRate);
       this.setState({
-        buySum,
+        perchaseSum,
         saleSum
       });
     }
 
-    _handleBuyCurrencyChange(evt) {
-      const {saleCurrency, buySum} = this.state;
+    _handlePerchaseCurrencyChange(evt) {
+      const {saleCurrency, saleSum} = this.state;
       const {rate} = this.props;
-      const buyCurrency = evt.target.value;
-      const currentRate = getCurrentRate(rate, saleCurrency, buyCurrency);
-      const saleSum = convertBuySum(buySum, currentRate);
+      const perchaseCurrency = evt.target.value;
+      const currentRate = getCurrentRate(rate, saleCurrency, perchaseCurrency);
+      const perchaseSum = convertSaleSum(saleSum, currentRate);
       this.setState({
-        buyCurrency,
+        perchaseCurrency,
+        perchaseSum,
         currentRate,
-        saleSum,
       });
     }
 
     _handleSaleSumChange(evt) {
       const {currentRate} = this.state;
       const saleSum = Number(evt.target.value) || '';
-      const buySum = convertSaleSum(saleSum, currentRate);
+      const perchaseSum = convertSaleSum(saleSum, currentRate);
       this.setState({
-        buySum,
+        perchaseSum,
         saleSum,
       });
     }
 
     _handleSaleCurrencyChange(evt) {
-      const {buyCurrency, saleSum} = this.state;
+      const {perchaseCurrency, saleSum} = this.state;
       const {rate} = this.props;
       const saleCurrency = evt.target.value;
-      const currentRate = getCurrentRate(rate, saleCurrency, buyCurrency);
-      const buySum = convertSaleSum(saleSum, currentRate);
-      console.log('saleChange');
+      const currentRate = getCurrentRate(rate, saleCurrency, perchaseCurrency);
+      const perchaseSum = convertSaleSum(saleSum, currentRate);
       this.setState({
         saleCurrency,
         currentRate,
-        buySum,
+        perchaseSum,
       });
+    }
+
+    _handleDateChange(newDate) {
+      const {onDateChange} = this.props;
+      console.log(newDate);
+      onDateChange(newDate);
     }
 
     _handleFormSubmit(evt) {
       evt.preventDefault();
       const {date, onSubmit} = this.props;
-      const {saleSum, saleCurrency, buySum, buyCurrency} = this.state;
+      const {saleSum, saleCurrency, perchaseSum, perchaseCurrency} = this.state;
+      const id = generateId();
       const operation = {
-        date,
-        saleSum,
+        id,
+        date: formatDate(date),
+        perchaseSum: parseFloat(perchaseSum),
+        perchaseCurrency,
+        saleSum: parseFloat(saleSum),
         saleCurrency,
-        buySum,
-        buyCurrency
       };
       onSubmit(operation);
     }
 
     render() {
-      const {saleSum, saleCurrency, buySum, buyCurrency} = this.state;
+      const {saleSum, saleCurrency, perchaseSum, perchaseCurrency} = this.state;
       return (
         <Component
           {...this.props}
-          buyCurrency={buyCurrency}
-          buySum={buySum}
-          onBuyCurrencyChange={this._handleBuyCurrencyChange}
-          onBuySumChange={this._handleBuySumChange}
+          perchaseCurrency={perchaseCurrency}
+          perchaseSum={perchaseSum}
+          onPerchaseCurrencyChange={this._handlePerchaseCurrencyChange}
+          onPerchaseSumChange={this._handlePerchaseSumChange}
+          onDateChange={this._handleDateChange}
           onSaleCurrencyChange={this._handleSaleCurrencyChange}
           onSaleSumChange={this._handleSaleSumChange}
           onFormSubmit={this._handleFormSubmit}
@@ -106,7 +115,7 @@ const withCurrentOperation = (Component) => {
   }
 
   WithCurrentOperation.propTypes = {
-    buyCurrency: PropTypes.string.isRequired,
+    perchaseCurrency: PropTypes.string.isRequired,
     rate: PropTypes.object.isRequired,
     onSubmit: PropTypes.func.isRequired,
     saleSum: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
