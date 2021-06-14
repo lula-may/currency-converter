@@ -3,10 +3,10 @@ import FieldCurrency from "../field-currency/field-currency";
 
 const FieldsGroup = (props) => {
   const {
-    buyCurrency,
-    buySum,
-    onBuyCurrencyChange,
-    onBuySumChange,
+    perchaseCurrency,
+    perchaseSum,
+    onPerchaseCurrencyChange,
+    onPerchaseSumChange,
     onSaleCurrencyChange,
     onSaleSumChange,
     saleCurrency,
@@ -28,10 +28,10 @@ const FieldsGroup = (props) => {
 
         name="buy"
         labelText="Хочу купить"
-        currency={buyCurrency}
-        value= {buySum}
-        onCurrencyChange={onBuyCurrencyChange}
-        onValueChange={onBuySumChange}
+        currency={perchaseCurrency}
+        value= {perchaseSum}
+        onCurrencyChange={onPerchaseCurrencyChange}
+        onValueChange={onPerchaseSumChange}
       />
     </div>
   )
