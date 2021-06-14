@@ -1,4 +1,5 @@
 import {extend} from "../utils";
+import {MAX_OPERATIONS_COUNT} from "../const";
 
 const rate = {
   "CNYCNY": "1.000000",
@@ -28,7 +29,6 @@ const rate = {
   "USDUSD": "1.000000",
 };
 
-const MAX_OPERATIONS_COUNT = 10;
 const operations = [
   {
     id: 0,
@@ -105,6 +105,7 @@ const initialState = {
 
 const ActionType = {
   ADD_OPERATION: 'ADD_OPERATION',
+  CLEAR_OPERATIONS: 'CLEAR_OPERATIONS',
   SET_DATE: 'SET_DATE',
   SET_RATE: 'SET_RATE',
 }
@@ -113,6 +114,10 @@ const ActionCreator = {
   addNewOperation: (operation) => ({
     type: ActionType.ADD_OPERATION,
     payload: operation,
+  }),
+
+  clearOperations: () => ({
+    type: ActionType.CLEAR_OPERATIONS
   }),
 
   setDate: (date) => ({
@@ -129,9 +134,14 @@ const ActionCreator = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.ADD_OPERATION:
+      const operations = state.operations.slice(0, MAX_OPERATIONS_COUNT);
       return extend(state, {
-        operations: [action.payload, ...state.operations.slice(0, MAX_OPERATIONS_COUNT)]
+        operations: [action.payload, ...operations]
       });
+    case ActionType.CLEAR_OPERATIONS:
+      return extend(state, {
+        operations: []
+      })
     case ActionType.SET_DATE:
       return extend(state, {
         date: action.payload,
