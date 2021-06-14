@@ -82,7 +82,7 @@
             <div class="convert-form__field field">
               <label class="field__label" for="sale">У меня есть</label>
               <div class="field__wrapper">
-                <input class="field__control field__control--input" type="number" id="sale" name="sale" value="1000">
+                <input class="field__control field__control--input" type="number" id="sale" name="sale" min="0" step="0.0001" value="1000" required>
                 <select class="field__control field__control--select" name="currency" id="currency-sale">
                   <option value="rub" selected>RUB</option>
                   <option value="usd">USD</option>
@@ -97,7 +97,7 @@
             <div class="convert-form__field field">
               <label class="field__label" for="buy">Хочу приобрести</label>
               <div class="field__wrapper">
-                <input class="field__control field__control--input" type="number" id="buy" name="buy" value="13.1234">
+                <input class="field__control field__control--input" type="number" id="buy" name="buy" min="0" step="0.0001"  value="13.1234" required>
                 <select class="field__control field__control--select" name="currency" id="currency-buy">
                   <option value="rub">RUB</option>
                   <option value="usd" selected>USD</option>

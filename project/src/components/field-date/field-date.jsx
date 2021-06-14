@@ -26,7 +26,9 @@ export default class FieldDate extends PureComponent {
       maxDate: 'today',
       minDate: new Date().fp_incr(-7),
       onChange: function(dates) {
-        onDateChange(dates[0]);
+        if (dates[0]) {
+          onDateChange(dates[0]);
+        }
       }
     })
   }
@@ -52,7 +54,7 @@ export default class FieldDate extends PureComponent {
     return (
       <p className="convert-form__field field">
         <label className="visually-hidden" htmlFor="date">Дата для расчета курса валют</label>
-        <input className="field__control field__control--input field__control--date" ref={this._ref} type="text" id="date" name="date" defaultValue={formatedDate} />
+        <input className="field__control field__control--input field__control--date" ref={this._ref} type="text" id="date" name="date" defaultValue={formatedDate} required />
       </p>
     );
   }
