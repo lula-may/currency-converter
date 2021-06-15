@@ -22,6 +22,9 @@ const Main = (props) => {
     onConverterFormSubmit,
     onDateChange,
     onHistoryReset,
+    onPerchaseCurrencyChange,
+    onSaleCurrencyChange,
+    onSaleSumChange,
     operations,
     perchaseCurrency,
     rate,
@@ -55,6 +58,9 @@ const Main = (props) => {
             isLoading={isLoading}
             onSubmit={onConverterFormSubmit}
             onDateChange={onDateChange}
+            onPerchaseCurrencyChange={onPerchaseCurrencyChange}
+            onSaleCurrencyChange={onSaleCurrencyChange}
+            onSaleSumChange={onSaleSumChange}
             perchaseCurrency={perchaseCurrency}
             rate={rate}
             saleCurrency={saleCurrency}
@@ -76,6 +82,9 @@ Main.propTypes = {
   onConverterFormSubmit: PropTypes.func.isRequired,
   onDateChange: PropTypes.func.isRequired,
   onHistoryReset: PropTypes.func.isRequired,
+  onPerchaseChange: PropTypes.func.isRequired,
+  onSaleCurrencyChange: PropTypes.func.isRequired,
+  onSaleSumChange: PropTypes.func.isRequired,
   operations: propOpertaions,
   perchaseCurrency: PropTypes.string.isRequired,
   rate: PropTypes.object.isRequired,

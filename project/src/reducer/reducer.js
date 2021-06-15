@@ -1,5 +1,5 @@
 import {extend} from "../utils";
-import {MAX_OPERATIONS_COUNT} from "../const";
+import {DEFAULT_PERCHASE_CURRENCY, DEFAULT_SALE_CURRENCY, DEFAULT_SALE_SUM, MAX_OPERATIONS_COUNT} from "../const";
 
 
 const initialState = {
@@ -7,17 +7,23 @@ const initialState = {
   isLoading: false,
   hasError: false,
   operations: [],
-  rate: {}
+  rate: {},
+  perchaseCurrency: DEFAULT_PERCHASE_CURRENCY,
+  saleCurrency: DEFAULT_SALE_CURRENCY,
+  saleSum: DEFAULT_SALE_SUM,
 }
 
 const ActionType = {
-  ADD_OPERATION: 'ADD_OPERATION',
-  CLEAR_OPERATIONS: 'CLEAR_OPERATIONS',
-  END_LOADING: 'END_LOADING',
-  LOAD_RATE: 'LOAD_RATE',
-  SET_ERROR: 'SET_ERROR',
-  SET_DATE: 'SET_DATE',
-  START_LOADING: 'START_LOADING',
+  ADD_OPERATION: `ADD_OPERATION`,
+  CLEAR_OPERATIONS: `CLEAR_OPERATIONS`,
+  END_LOADING: `END_LOADING`,
+  LOAD_RATE: `LOAD_RATE`,
+  SET_ERROR: `SET_ERROR`,
+  SET_DATE: `SET_DATE`,
+  START_LOADING: `START_LOADING`,
+  SET_PERCHASE_CURRENCY: `SET_PERCHASE_CURRENCY`,
+  SET_SALE_SUM: `SET_SALE_SUM`,
+  SET_SALE_CURRENCY: `SET_SALE_CURRENCY`,
 }
 
 const ActionCreator = {
@@ -42,6 +48,21 @@ const ActionCreator = {
   setDate: (date) => ({
     type: ActionType.SET_DATE,
     payload: date,
+  }),
+
+  setPerchaseCurrency: (currency) => ({
+    type: ActionType.SET_PERCHASE_CURRENCY,
+    payload: currency,
+  }),
+
+  setSaleCurrency: (currency) => ({
+    type: ActionType.SET_SALE_CURRENCY,
+    payload: currency,
+  }),
+
+  setSaleSum: (sum) => ({
+    type: ActionType.SET_SALE_SUM,
+    payload: sum,
   }),
 
   setRates: (rate) => ({
@@ -107,6 +128,21 @@ const reducer = (state = initialState, action) => {
     case ActionType.SET_ERROR:
       return extend(state, {
         hasError: action.payload,
+      });
+
+    case ActionType.SET_PERCHASE_CURRENCY:
+      return extend(state, {
+        perchaseCurrency: action.payload,
+      });
+
+    case ActionType.SET_SALE_CURRENCY:
+      return extend(state, {
+        saleCurrency: action.payload,
+      });
+
+    case ActionType.SET_SALE_SUM:
+      return extend(state, {
+        saleSum: action.payload,
       });
 
     case ActionType.START_LOADING:

@@ -6,7 +6,7 @@ import Main from "../main/main.jsx";
 import NotFound from "../not-found/not-found.jsx";
 import {propOpertaions} from "../props.js";
 import {ActionCreator, Operation} from "../../reducer/reducer.js";
-import {AppRoute, DEFAULT_PERCHASE_CURRENCY, DEFAULT_SALE_CURRENCY, DEFAULT_SALE_SUM, NAVIGATION_LINKS} from "../../const.js";
+import {AppRoute, NAVIGATION_LINKS} from "../../const.js";
 
 const App = (props) => {
   const {
@@ -17,7 +17,13 @@ const App = (props) => {
     onConverterFormSubmit,
     onDateChange,
     onHistoryReset,
+    onPerchaseCurrencyChange,
+    onSaleCurrencyChange,
+    onSaleSumChange,
     operations,
+    perchaseCurrency,
+    saleCurrency,
+    saleSum,
   } = props;
 
   return (
@@ -32,11 +38,14 @@ const App = (props) => {
             onConverterFormSubmit={onConverterFormSubmit}
             onDateChange={onDateChange}
             onHistoryReset={onHistoryReset}
+            onPerchaseCurrencyChange={onPerchaseCurrencyChange}
+            onSaleCurrencyChange={onSaleCurrencyChange}
+            onSaleSumChange={onSaleSumChange}
             operations={operations}
-            perchaseCurrency={DEFAULT_PERCHASE_CURRENCY}
+            perchaseCurrency={perchaseCurrency}
             rate={rate}
-            saleCurrency={DEFAULT_SALE_CURRENCY}
-            saleSum={DEFAULT_SALE_SUM}
+            saleCurrency={saleCurrency}
+            saleSum={saleSum}
           />
         </Route>
         <Route>
@@ -53,6 +62,9 @@ const mapStateToProps = (state) => ({
   hasError: state.hasError,
   operations: state.operations,
   rate: state.rate,
+  perchaseCurrency: state.perchaseCurrency,
+  saleCurrency: state.saleCurrency,
+  saleSum: state.saleSum,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -60,12 +72,20 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(ActionCreator.addNewOperation(operation))
   },
   onDateChange(date) {
-    console.log('DateChanged');
     dispatch(ActionCreator.setDate(date));
     dispatch(Operation.loadRate(date));
   },
   onHistoryReset() {
     dispatch(ActionCreator.clearOperations())
+  },
+  onSaleCurrencyChange(currency) {
+    dispatch(ActionCreator.setSaleCurrency(currency))
+  },
+  onPerchaseCurrencyChange(currency) {
+    dispatch(ActionCreator.setPerchaseCurrency(currency))
+  },
+  onSaleSumChange(sum) {
+    dispatch(ActionCreator.setSaleSum(sum))
   },
 });
 
@@ -76,8 +96,12 @@ App.propTypes = {
   onConverterFormSubmit: PropTypes.func.isRequired,
   onDateChange: PropTypes.func.isRequired,
   onHistoryReset: PropTypes.func.isRequired,
+  onPerchaseCurrencyChange: PropTypes.func.isRequired,
+  onSaleCurrencyChange: PropTypes.func.isRequired,
+  onSaleSumChange: PropTypes.func.isRequired,
   operations: propOpertaions,
   rate: PropTypes.object.isRequired,
+  saleSum: PropTypes.number.isRequired,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

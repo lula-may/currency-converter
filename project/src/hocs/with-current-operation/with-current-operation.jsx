@@ -37,11 +37,11 @@ const withCurrentOperation = (Component) => {
     }
 
     _handlePerchaseCurrencyChange(evt) {
-      const {saleCurrency, saleSum} = this.state;
-      const {rate} = this.props;
+      const {onPerchaseCurrencyChange, rate, saleCurrency, saleSum} = this.props;
       const perchaseCurrency = evt.target.value;
       const currentRate = getCurrentRate(rate, saleCurrency, perchaseCurrency);
       const perchaseSum = convertSaleSum(saleSum, currentRate);
+      onPerchaseCurrencyChange(perchaseCurrency);
       this.setState({
         perchaseCurrency,
         perchaseSum,
@@ -50,9 +50,11 @@ const withCurrentOperation = (Component) => {
     }
 
     _handleSaleSumChange(evt) {
+      const {onSaleSumChange} = this.props;
       const {currentRate} = this.state;
       const saleSum = Number(evt.target.value) || '';
       const perchaseSum = convertSaleSum(saleSum, currentRate);
+      onSaleSumChange(saleSum);
       this.setState({
         perchaseSum,
         saleSum,
@@ -60,11 +62,11 @@ const withCurrentOperation = (Component) => {
     }
 
     _handleSaleCurrencyChange(evt) {
-      const {perchaseCurrency, saleSum} = this.state;
-      const {rate} = this.props;
+      const {onSaleCurrencyChange, rate,perchaseCurrency, saleSum} = this.props;
       const saleCurrency = evt.target.value;
       const currentRate = getCurrentRate(rate, saleCurrency, perchaseCurrency);
       const perchaseSum = convertSaleSum(saleSum, currentRate);
+      onSaleCurrencyChange(saleCurrency);
       this.setState({
         saleCurrency,
         currentRate,
