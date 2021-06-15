@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-const Error = () => {
+function Error() {
   return (
     <section className="converter">
       <h1 className="converter__title">Конвертер валют</h1>

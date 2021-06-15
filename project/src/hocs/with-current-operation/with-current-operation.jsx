@@ -1,6 +1,6 @@
-import React, {PureComponent} from "react";
-import PropTypes from "prop-types";
-import {generateId, getCurrentRate, convertPerchaseSum, convertSaleSum, formatDate} from "../../utils";
+import React, {PureComponent} from 'react';
+import PropTypes from 'prop-types';
+import {generateId, getCurrentRate, convertPerchaseSum, convertSaleSum, formatDate} from '../../utils';
 
 const withCurrentOperation = (Component) => {
 
@@ -13,7 +13,7 @@ const withCurrentOperation = (Component) => {
       this.state = {
         currentRate,
         perchaseSum: convertSaleSum(saleSum, currentRate),
-      }
+      };
 
       this._handleFormSubmit = this._handleFormSubmit.bind(this);
       this._handlePerchaseCurrencyChange = this._handlePerchaseCurrencyChange.bind(this);
@@ -27,7 +27,6 @@ const withCurrentOperation = (Component) => {
       const {currentRate} = this.state;
       const perchaseSum = parseFloat(evt.target.value) || '';
       const saleSum = convertPerchaseSum(perchaseSum, currentRate);
-      console.log(saleSum, typeof(saleSum));
       onSaleSumChange(saleSum);
       this.setState({
         perchaseSum,
@@ -103,6 +102,7 @@ const withCurrentOperation = (Component) => {
   }
 
   WithCurrentOperation.propTypes = {
+    date: PropTypes.instanceOf(Date).isRequired,
     perchaseCurrency: PropTypes.string.isRequired,
     rate: PropTypes.object.isRequired,
     onPerchaseCurrencyChange: PropTypes.func.isRequired,
@@ -111,9 +111,9 @@ const withCurrentOperation = (Component) => {
     onSubmit: PropTypes.func.isRequired,
     saleSum: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
     saleCurrency: PropTypes.string.isRequired,
-  }
+  };
 
   return WithCurrentOperation;
-}
+};
 
 export default withCurrentOperation;

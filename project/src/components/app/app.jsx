@@ -1,10 +1,10 @@
-import React from "react";
-import {BrowserRouter, Route, Switch} from "react-router-dom";
-import Main from "../main/main.jsx";
-import NotFound from "../not-found/not-found.jsx";
-import {AppRoute, NAVIGATION_LINKS} from "../../const.js";
+import React from 'react';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import Main from '../main/main.jsx';
+import NotFound from '../not-found/not-found.jsx';
+import {AppRoute, NAVIGATION_LINKS} from '../../const.js';
 
-const App = () => {
+function App() {
   return (
     <BrowserRouter>
       <Switch>

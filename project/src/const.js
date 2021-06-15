@@ -1,23 +1,23 @@
-const API_KEY = `a005702a978fcb50d0d747ff0da0ec52`;
+const API_KEY = 'a005702a978fcb50d0d747ff0da0ec52';
 
 const AppRoute = {
-  ROOT: `/`,
-  CONTACTS: `/contacts`,
-  CREDIT: `/credit`,
-  LOGIN: `/login`,
-  MAIN: `/main`,
-  QUESTION: `/question`,
-  SERVICES: `/services`,
+  ROOT: '/',
+  CONTACTS: '/contacts',
+  CREDIT: '/credit',
+  LOGIN: '/login',
+  MAIN: '/main',
+  QUESTION: '/question',
+  SERVICES: '/services',
 };
 
-const CURRENCIES = [`USD`, `RUB`, `EUR`, `GBP`, `CNY`];
+const CURRENCIES = ['USD', 'RUB', 'EUR', 'GBP', 'CNY'];
 
 const Currency = {
-  CNY: `CNY`,
-  EUR: `EUR`,
-  GBP: `GBP`,
-  RUB: `RUB`,
-  USD: `USD`,
+  CNY: 'CNY',
+  EUR: 'EUR',
+  GBP: 'GBP',
+  RUB: 'RUB',
+  USD: 'USD',
 };
 
 const DEFAULT_SALE_CURRENCY = Currency.RUB;
@@ -29,23 +29,23 @@ const MAX_OPERATIONS_COUNT = 9;
 const NAVIGATION_LINKS = [
   {
     link: AppRoute.SERVICES,
-    title: `Услуги`,
+    title: 'Услуги',
   },
   {
     link: AppRoute.CREDIT,
-    title: `Рассчитать кредит`,
+    title: 'Рассчитать кредит',
   },
   {
     link: AppRoute.ROOT,
-    title: `Конвертер валют`,
+    title: 'Конвертер валют',
   },
   {
     link: AppRoute.CONTACTS,
-    title: `Контакты`,
+    title: 'Контакты',
   },
   {
     link: AppRoute.QUESTION,
-    title: `Задать вопрос`,
+    title: 'Задать вопрос',
   },
 ];
 

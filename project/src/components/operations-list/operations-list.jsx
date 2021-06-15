@@ -1,9 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Operation from "../operation/operation";
-import {propOperations} from "../props";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Operation from '../operation/operation';
+import {propOperations} from '../props';
 
-const OperationsList = (props) => {
+export default function OperationsList (props) {
   const {operations, className} = props;
 
   return (
@@ -11,10 +11,9 @@ const OperationsList = (props) => {
       {operations.map((item) => <Operation key={item.id} operation={item} />)}
     </ul>
   );
-};
+}
 
-OperationsList.propType = {
+OperationsList.propTypes = {
   operations: propOperations,
   className: PropTypes.string.isRequired,
 };
-export default OperationsList

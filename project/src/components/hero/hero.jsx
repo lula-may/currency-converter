@@ -1,8 +1,8 @@
-import React from "react";
-import {Link} from "react-router-dom";
-import {AppRoute} from "../../const";
+import React from 'react';
+import {Link} from 'react-router-dom';
+import {AppRoute} from '../../const';
 
-const Hero = () => {
+function Hero() {
   return (
     <article className="hero">
       <div className="hero__wrapper">
@@ -12,6 +12,6 @@ const Hero = () => {
       </div>
     </article>
   );
-};
+}
 
 export default Hero;

@@ -1,7 +1,7 @@
-import React from "react";
-import {propOperation} from "../props";
+import React from 'react';
+import {propOperation} from '../props';
 
-const Operation = ({operation}) => {
+function Operation({operation}) {
   const {date, saleSum, saleCurrency, perchaseSum, perchaseCurrency} = operation;
   return (
     <li className="history__item operation">

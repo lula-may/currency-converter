@@ -1,7 +1,7 @@
-import React, {PureComponent, createRef} from "react";
-import PropTypes from "prop-types";
-import flatpickr from "flatpickr";
-import "flatpickr/dist/flatpickr.min.css";
+import React, {PureComponent, createRef} from 'react';
+import PropTypes from 'prop-types';
+import flatpickr from 'flatpickr';
+import 'flatpickr/dist/flatpickr.min.css';
 
 const withDatePicker = (Component) => {
 
@@ -31,8 +31,8 @@ const withDatePicker = (Component) => {
           if (dates[0]) {
             onDateChange(dates[0]);
           }
-        }
-      })
+        },
+      });
     }
 
     componentDidMount() {
@@ -69,6 +69,6 @@ const withDatePicker = (Component) => {
   };
 
   return WithDatePicker;
-}
+};
 
 export default withDatePicker;

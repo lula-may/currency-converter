@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-const Loading = () => {
+function Loading() {
   return (
     <section className="converter">
       <h1 className="converter__title">Конвертер валют</h1>

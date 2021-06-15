@@ -1,10 +1,10 @@
-import React from "react";
-import {Link} from "react-router-dom";
-import NavigationMain from "../navigation-main/navigation-main";
-import {AppRoute} from "../../const";
-import {propLink} from "../props";
+import React from 'react';
+import {Link} from 'react-router-dom';
+import NavigationMain from '../navigation-main/navigation-main';
+import {AppRoute} from '../../const';
+import {propLink} from '../props';
 
-const Header = (props) => {
+function Header(props) {
   const {currentPage} = props;
   return (
     <header className="page__header main-header">
@@ -24,7 +24,7 @@ const Header = (props) => {
       </div>
     </header>
   );
-};
+}
 
 Header.propTypes = {
   currentPage: propLink,

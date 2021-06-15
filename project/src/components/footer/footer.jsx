@@ -1,12 +1,12 @@
-import React from "react";
-import {Link} from "react-router-dom";
-import {AppRoute, NAVIGATION_LINKS} from "../../const";
-import {propLink} from "../props";
+import React from 'react';
+import {Link} from 'react-router-dom';
+import {AppRoute, NAVIGATION_LINKS} from '../../const';
+import {propLink} from '../props';
 
-const Footer = (props) => {
+function Footer(props) {
   const {currentPage} = props;
   return (
-        <footer className="page__footer main-footer">
+    <footer className="page__footer main-footer">
       <div className="main-footer__wrapper">
         <div className="main-footer__item main-footer__item--info">
           <Link to={AppRoute.MAIN} className="main-footer__logo logo" aria-label="На главную">
@@ -48,7 +48,7 @@ const Footer = (props) => {
             <span>8 800 111 22 33</span>
           </a>
           <p className="contact__text">Бесплатный для всех городов России</p>
-         </div>
+        </div>
 
         <div className="main-footer__item main-footer__item--social social">
           <ul className="social__list">
@@ -80,7 +80,7 @@ const Footer = (props) => {
 }
 
 Footer.propTypes = {
-  currentPage: propLink
+  currentPage: propLink,
 };
 
 export default Footer;

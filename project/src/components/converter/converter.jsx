@@ -1,12 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
-import FieldsGroup from "../fields-group/fields-group";
-import FieldDate from "../field-date/field-date";
-import withDatePicker from "../../hocs/with-date-picker/with-date-picker";
+import React from 'react';
+import PropTypes from 'prop-types';
+import FieldsGroup from '../fields-group/fields-group';
+import FieldDate from '../field-date/field-date';
+import withDatePicker from '../../hocs/with-date-picker/with-date-picker';
 
 const FieldDateWrapped = withDatePicker(FieldDate);
 
-const Converter = (props) => {
+function Converter(props) {
   const {
     date,
     onDateChange,

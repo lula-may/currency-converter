@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const FieldCurrency = (props) => {
+function FieldCurrency(props) {
   const {name, currency, value, onCurrencyChange, onValueChange, labelText} = props;
 
   return (

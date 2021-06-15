@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 const propOperation = PropTypes.shape({
   id: PropTypes.number.isRequired,
@@ -11,8 +11,8 @@ const propOperation = PropTypes.shape({
 
 const propOperations = PropTypes.arrayOf(PropTypes.shape(propOperation)).isRequired;
 const propLink = PropTypes.shape({
-    link: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-  }).isRequired;
+  link: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+}).isRequired;
 
 export {propLink, propOperation, propOperations};

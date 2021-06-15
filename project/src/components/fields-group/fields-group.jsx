@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import FieldCurrency from "../field-currency/field-currency";
+import React from 'react';
+import PropTypes from 'prop-types';
+import FieldCurrency from '../field-currency/field-currency';
 
-const FieldsGroup = (props) => {
+function FieldsGroup(props) {
   const {
     onPerchaseCurrencyChange,
     onPerchaseSumChange,
@@ -35,7 +35,7 @@ const FieldsGroup = (props) => {
         onValueChange={onPerchaseSumChange}
       />
     </div>
-  )
+  );
 }
 
 FieldsGroup.propTypes = {
