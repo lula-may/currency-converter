@@ -1,10 +1,11 @@
 import React from "react";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import Main from "../main/main.jsx";
 import {propOpertaions} from "../props.js";
 import {ActionCreator, Operation} from "../../reducer/reducer.js";
-import {DEFAULT_PERCHASE_CURRENCY, DEFAULT_SALE_CURRENCY, DEFAULT_SALE_SUM } from "../../const.js";
+import {AppRoute, DEFAULT_PERCHASE_CURRENCY, DEFAULT_SALE_CURRENCY, DEFAULT_SALE_SUM, NAVIGATION_LINKS} from "../../const.js";
 
 const App = (props) => {
   const {
@@ -19,19 +20,26 @@ const App = (props) => {
   } = props;
 
   return (
-    <Main
-      date={date}
-      hasError={hasError}
-      isLoading={isLoading}
-      onConverterFormSubmit={onConverterFormSubmit}
-      onDateChange={onDateChange}
-      onHistoryReset={onHistoryReset}
-      operations={operations}
-      perchaseCurrency={DEFAULT_PERCHASE_CURRENCY}
-      rate={rate}
-      saleCurrency={DEFAULT_SALE_CURRENCY}
-      saleSum={DEFAULT_SALE_SUM}
-    />
+    <BrowserRouter>
+      <Switch>
+        <Route exact path={AppRoute.ROOT} >
+          <Main
+            currentPage={NAVIGATION_LINKS[2]}
+            date={date}
+            hasError={hasError}
+            isLoading={isLoading}
+            onConverterFormSubmit={onConverterFormSubmit}
+            onDateChange={onDateChange}
+            onHistoryReset={onHistoryReset}
+            operations={operations}
+            perchaseCurrency={DEFAULT_PERCHASE_CURRENCY}
+            rate={rate}
+            saleCurrency={DEFAULT_SALE_CURRENCY}
+            saleSum={DEFAULT_SALE_SUM}
+          />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
