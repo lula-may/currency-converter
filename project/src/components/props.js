@@ -9,10 +9,10 @@ const propOperation = PropTypes.shape({
   saleSum: PropTypes.number.isRequired,
 }).isRequired;
 
-const propOpertaions = PropTypes.arrayOf(PropTypes.shape(propOperation)).isRequired;
+const propOperations = PropTypes.arrayOf(PropTypes.shape(propOperation)).isRequired;
 const propLink = PropTypes.shape({
     link: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
   }).isRequired;
 
-export {propLink, propOperation, propOpertaions};
+export {propLink, propOperation, propOperations};

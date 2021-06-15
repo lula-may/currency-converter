@@ -1,6 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Operation from "../operation/operation";
-import {propOpertaions} from "../props";
+import {propOperations} from "../props";
 
 const OperationsList = (props) => {
   const {operations, className} = props;
@@ -12,5 +13,8 @@ const OperationsList = (props) => {
   );
 };
 
-OperationsList.propType = propOpertaions;
+OperationsList.propType = {
+  operations: propOperations,
+  className: PropTypes.string.isRequired,
+};
 export default OperationsList

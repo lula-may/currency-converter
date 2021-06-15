@@ -1,6 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 import OperationsList from "../operations-list/operations-list";
-import {propOpertaions} from "../props";
+import {propOperations} from "../props";
 const GROUP_COUNT = 5;
 
 const History = (props) => {
@@ -28,7 +29,8 @@ const History = (props) => {
 }
 
 History.propTypes = {
-  operations: propOpertaions
+  onHistoryReset: PropTypes.func.isRequired,
+  operations: propOperations,
 };
 
 export default History;

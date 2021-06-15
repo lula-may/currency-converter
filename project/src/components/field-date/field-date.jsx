@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 const FieldDate = ({children}) => {
   return (
@@ -8,11 +7,6 @@ const FieldDate = ({children}) => {
       {children}
     </p>
   );
-};
-
-FieldDate.propTypes = {
-  date: PropTypes.instanceOf(Date).isRequired,
-  onDateChange: PropTypes.func.isRequired,
 };
 
 export default FieldDate;

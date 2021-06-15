@@ -12,6 +12,8 @@ const Operation = ({operation}) => {
   );
 }
 
-Operation.propTypes = propOperation;
+Operation.propTypes = {
+  operation: propOperation,
+};
 
 export default Operation;

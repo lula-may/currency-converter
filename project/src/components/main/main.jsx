@@ -1,6 +1,7 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, {Fragment} from "react";
+import {connect} from "react-redux";
 import PropTypes from "prop-types";
+
 import Converter from "../converter/converter.jsx";
 import Error from "../error/error.jsx";
 import Footer from "../footer/footer.jsx";
@@ -9,7 +10,8 @@ import Header from "../header/header.jsx";
 import Hero from "../hero/hero.jsx";
 import Loading from "../loading/loading.jsx";
 import withCurrentOperation from "../../hocs/with-current-operation/with-current-operation.jsx";
-import {propOpertaions} from "../props.js";
+import {propOperations} from "../props.js";
+import {ActionCreator, Operation} from "../../reducer/reducer.js";
 
 const ConverterWrapped = withCurrentOperation(Converter);
 
@@ -54,8 +56,6 @@ const Main = (props) => {
         {renderComponent(
           <ConverterWrapped
             date={date}
-            hasError={hasError}
-            isLoading={isLoading}
             onSubmit={onConverterFormSubmit}
             onDateChange={onDateChange}
             onPerchaseCurrencyChange={onPerchaseCurrencyChange}
@@ -77,19 +77,54 @@ const Main = (props) => {
   );
 }
 
+const mapStateToProps = (state) => ({
+  date: state.date,
+  isLoading: state.isLoading,
+  hasError: state.hasError,
+  operations: state.operations,
+  rate: state.rate,
+  perchaseCurrency: state.perchaseCurrency,
+  saleCurrency: state.saleCurrency,
+  saleSum: state.saleSum,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onConverterFormSubmit(operation) {
+    dispatch(ActionCreator.addNewOperation(operation))
+  },
+  onDateChange(date) {
+    dispatch(ActionCreator.setDate(date));
+    dispatch(Operation.loadRate(date));
+  },
+  onHistoryReset() {
+    dispatch(ActionCreator.clearOperations())
+  },
+  onSaleCurrencyChange(currency) {
+    dispatch(ActionCreator.setSaleCurrency(currency))
+  },
+  onPerchaseCurrencyChange(currency) {
+    dispatch(ActionCreator.setPerchaseCurrency(currency))
+  },
+  onSaleSumChange(sum) {
+    dispatch(ActionCreator.setSaleSum(sum))
+  },
+});
+
 Main.propTypes = {
   date: PropTypes.instanceOf(Date).isRequired,
+  hasError: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool.isRequired,
   onConverterFormSubmit: PropTypes.func.isRequired,
   onDateChange: PropTypes.func.isRequired,
   onHistoryReset: PropTypes.func.isRequired,
-  onPerchaseChange: PropTypes.func.isRequired,
+  onPerchaseCurrencyChange: PropTypes.func.isRequired,
   onSaleCurrencyChange: PropTypes.func.isRequired,
   onSaleSumChange: PropTypes.func.isRequired,
-  operations: propOpertaions,
+  operations: propOperations,
   perchaseCurrency: PropTypes.string.isRequired,
   rate: PropTypes.object.isRequired,
   saleCurrency: PropTypes.string.isRequired,
-  saleSum: PropTypes.number.isRequired,
-};
+  saleSum: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+}
 
-export default Main;
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

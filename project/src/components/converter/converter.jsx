@@ -9,10 +9,10 @@ const FieldDateWrapped = withDatePicker(FieldDate);
 const Converter = (props) => {
   const {
     date,
-    onPerchaseCurrencyChange,
-    onPerchaseSumChange,
     onDateChange,
     onFormSubmit,
+    onPerchaseCurrencyChange,
+    onPerchaseSumChange,
     onSaleCurrencyChange,
     onSaleSumChange,
     perchaseCurrency,
@@ -49,10 +49,10 @@ const Converter = (props) => {
 
 Converter.propTypes = {
   date: PropTypes.instanceOf(Date).isRequired,
-  onPerchaseCurrencyChange: PropTypes.func.isRequired,
-  onPerchaseSumChange: PropTypes.func.isRequired,
   onDateChange: PropTypes.func.isRequired,
   onFormSubmit: PropTypes.func.isRequired,
+  onPerchaseCurrencyChange: PropTypes.func.isRequired,
+  onPerchaseSumChange: PropTypes.func.isRequired,
   onSaleCurrencyChange: PropTypes.func.isRequired,
   onSaleSumChange: PropTypes.func.isRequired,
   perchaseCurrency: PropTypes.string.isRequired,
