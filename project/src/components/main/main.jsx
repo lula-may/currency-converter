@@ -1,21 +1,21 @@
-import React, {Fragment} from "react";
-import {connect} from "react-redux";
-import PropTypes from "prop-types";
+import React, {Fragment} from 'react';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 
-import Converter from "../converter/converter.jsx";
-import Error from "../error/error.jsx";
-import Footer from "../footer/footer.jsx";
-import History from "../history/history.jsx";
-import Header from "../header/header.jsx";
-import Hero from "../hero/hero.jsx";
-import Loading from "../loading/loading.jsx";
-import withCurrentOperation from "../../hocs/with-current-operation/with-current-operation.jsx";
-import {propOperations} from "../props.js";
-import {ActionCreator, Operation} from "../../reducer/reducer.js";
+import Converter from '../converter/converter.jsx';
+import Error from '../error/error.jsx';
+import Footer from '../footer/footer.jsx';
+import History from '../history/history.jsx';
+import Header from '../header/header.jsx';
+import Hero from '../hero/hero.jsx';
+import Loading from '../loading/loading.jsx';
+import withCurrentOperation from '../../hocs/with-current-operation/with-current-operation.jsx';
+import {propLink, propOperations} from '../props.js';
+import {ActionCreator, Operation} from '../../reducer/reducer.js';
 
 const ConverterWrapped = withCurrentOperation(Converter);
 
-const Main = (props) => {
+function Main(props) {
   const {
     currentPage,
     date,
@@ -65,7 +65,7 @@ const Main = (props) => {
             rate={rate}
             saleCurrency={saleCurrency}
             saleSum={saleSum}
-          />
+          />,
         )}
         <History
           onHistoryReset={onHistoryReset}
@@ -90,27 +90,28 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onConverterFormSubmit(operation) {
-    dispatch(ActionCreator.addNewOperation(operation))
+    dispatch(Operation.addNewOperation(operation));
   },
   onDateChange(date) {
     dispatch(ActionCreator.setDate(date));
     dispatch(Operation.loadRate(date));
   },
   onHistoryReset() {
-    dispatch(ActionCreator.clearOperations())
+    dispatch(ActionCreator.clearOperations());
   },
   onSaleCurrencyChange(currency) {
-    dispatch(ActionCreator.setSaleCurrency(currency))
+    dispatch(ActionCreator.setSaleCurrency(currency));
   },
   onPerchaseCurrencyChange(currency) {
-    dispatch(ActionCreator.setPerchaseCurrency(currency))
+    dispatch(ActionCreator.setPerchaseCurrency(currency));
   },
   onSaleSumChange(sum) {
-    dispatch(ActionCreator.setSaleSum(sum))
+    dispatch(ActionCreator.setSaleSum(sum));
   },
 });
 
 Main.propTypes = {
+  currentPage: propLink,
   date: PropTypes.instanceOf(Date).isRequired,
   hasError: PropTypes.bool.isRequired,
   isLoading: PropTypes.bool.isRequired,
@@ -125,6 +126,6 @@ Main.propTypes = {
   rate: PropTypes.object.isRequired,
   saleCurrency: PropTypes.string.isRequired,
   saleSum: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);
