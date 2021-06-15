@@ -2,10 +2,12 @@
 import React, {Fragment} from "react";
 import PropTypes from "prop-types";
 import Converter from "../converter/converter.jsx";
+import Error from "../error/error.jsx";
 import Footer from "../footer/footer.jsx";
 import History from "../history/history.jsx";
 import Header from "../header/header.jsx";
 import Hero from "../hero/hero.jsx";
+import Loading from "../loading/loading.jsx";
 import withCurrentOperation from "../../hocs/with-current-operation/with-current-operation.jsx";
 import {propOpertaions} from "../props.js";
 
@@ -26,22 +28,39 @@ const Main = (props) => {
     saleSum,
     saleCurrency,
   } = props;
+
+  const renderComponent = (Component) => {
+    if (isLoading) {
+      return (
+        <Loading/>
+      );
+    }
+    if (hasError) {
+      return (
+        <Error/>
+      );
+    }
+    return Component;
+  };
+
   return (
     <Fragment>
       <Header currentPage={currentPage} />
       <main className="page__main">
         <Hero />
-        <ConverterWrapped
-          date={date}
-          hasError={hasError}
-          isLoading={isLoading}
-          onSubmit={onConverterFormSubmit}
-          onDateChange={onDateChange}
-          perchaseCurrency={perchaseCurrency}
-          rate={rate}
-          saleCurrency={saleCurrency}
-          saleSum={saleSum}
-        />
+        {renderComponent(
+          <ConverterWrapped
+            date={date}
+            hasError={hasError}
+            isLoading={isLoading}
+            onSubmit={onConverterFormSubmit}
+            onDateChange={onDateChange}
+            perchaseCurrency={perchaseCurrency}
+            rate={rate}
+            saleCurrency={saleCurrency}
+            saleSum={saleSum}
+          />
+        )}
         <History
           onHistoryReset={onHistoryReset}
           operations={operations}

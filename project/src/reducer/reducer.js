@@ -111,7 +111,7 @@ const reducer = (state = initialState, action) => {
 
     case ActionType.START_LOADING:
       return extend(state, {
-        isLoading: false,
+        isLoading: true,
       });
 
     default: return state;

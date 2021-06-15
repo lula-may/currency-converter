@@ -33,8 +33,7 @@ export default class Api {
         const rate = this._getAllRates(data.quotes);
         console.log(rate);
         return rate;
-      })
-      .catch((err) => err);
+      });
   }
 
   getRates(date) {

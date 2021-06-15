@@ -18,6 +18,7 @@ const store = createStore(reducer,
   )
 );
 
+store.dispatch(Operation.loadRate());
 
 const init = () => {
   ReactDOM.render(
@@ -28,5 +29,4 @@ const init = () => {
     );
   };
 
-store.dispatch(Operation.loadRate())
-.then(() => init());
+init();

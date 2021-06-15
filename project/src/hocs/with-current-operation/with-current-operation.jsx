@@ -76,12 +76,6 @@ const withCurrentOperation = (Component) => {
       const {onDateChange} = this.props;
       console.log(newDate);
       onDateChange(newDate);
-      this.setState((state, props) => {
-        const currentRate = getCurrentRate(props.rate, state.saleCurrency, state.perchaseCurrency);
-        return {
-        currentRate,
-        perchaseSum: convertSaleSum(state.saleSum, currentRate),
-      }})
     }
 
     _handleFormSubmit(evt) {

@@ -8,8 +8,6 @@ const FieldDateWrapped = withDatePicker(FieldDate);
 
 const Converter = (props) => {
   const {
-    perchaseCurrency,
-    perchaseSum,
     date,
     onPerchaseCurrencyChange,
     onPerchaseSumChange,
@@ -17,6 +15,8 @@ const Converter = (props) => {
     onFormSubmit,
     onSaleCurrencyChange,
     onSaleSumChange,
+    perchaseCurrency,
+    perchaseSum,
     saleSum,
     saleCurrency,
   } = props;

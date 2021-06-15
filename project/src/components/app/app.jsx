@@ -3,6 +3,7 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import Main from "../main/main.jsx";
+import NotFound from "../not-found/not-found.jsx";
 import {propOpertaions} from "../props.js";
 import {ActionCreator, Operation} from "../../reducer/reducer.js";
 import {AppRoute, DEFAULT_PERCHASE_CURRENCY, DEFAULT_SALE_CURRENCY, DEFAULT_SALE_SUM, NAVIGATION_LINKS} from "../../const.js";
@@ -37,6 +38,9 @@ const App = (props) => {
             saleCurrency={DEFAULT_SALE_CURRENCY}
             saleSum={DEFAULT_SALE_SUM}
           />
+        </Route>
+        <Route>
+          <NotFound />
         </Route>
       </Switch>
     </BrowserRouter>
