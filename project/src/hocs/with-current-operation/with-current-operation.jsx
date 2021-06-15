@@ -13,12 +13,8 @@ const withCurrentOperation = (Component) => {
       this.state = {
         currentRate,
         perchaseSum: convertSaleSum(saleSum, currentRate),
-        perchaseCurrency,
-        saleSum,
-        saleCurrency,
       }
 
-      this._handleDateChange = this._handleDateChange.bind(this);
       this._handleFormSubmit = this._handleFormSubmit.bind(this);
       this._handlePerchaseCurrencyChange = this._handlePerchaseCurrencyChange.bind(this);
       this._handlePerchaseSumChange = this._handlePerchaseSumChange.bind(this);
@@ -27,12 +23,14 @@ const withCurrentOperation = (Component) => {
     }
 
     _handlePerchaseSumChange(evt) {
+      const {onSaleSumChange} = this.props;
       const {currentRate} = this.state;
-      const perchaseSum = Number(evt.target.value) || '';
+      const perchaseSum = parseFloat(evt.target.value) || '';
       const saleSum = convertPerchaseSum(perchaseSum, currentRate);
+      console.log(saleSum, typeof(saleSum));
+      onSaleSumChange(saleSum);
       this.setState({
         perchaseSum,
-        saleSum
       });
     }
 
@@ -43,7 +41,6 @@ const withCurrentOperation = (Component) => {
       const perchaseSum = convertSaleSum(saleSum, currentRate);
       onPerchaseCurrencyChange(perchaseCurrency);
       this.setState({
-        perchaseCurrency,
         perchaseSum,
         currentRate,
       });
@@ -57,7 +54,6 @@ const withCurrentOperation = (Component) => {
       onSaleSumChange(saleSum);
       this.setState({
         perchaseSum,
-        saleSum,
       });
     }
 
@@ -68,22 +64,15 @@ const withCurrentOperation = (Component) => {
       const perchaseSum = convertSaleSum(saleSum, currentRate);
       onSaleCurrencyChange(saleCurrency);
       this.setState({
-        saleCurrency,
         currentRate,
         perchaseSum,
       });
     }
 
-    _handleDateChange(newDate) {
-      const {onDateChange} = this.props;
-      console.log(newDate);
-      onDateChange(newDate);
-    }
-
     _handleFormSubmit(evt) {
       evt.preventDefault();
-      const {date, onSubmit} = this.props;
-      const {saleSum, saleCurrency, perchaseSum, perchaseCurrency} = this.state;
+      const {date, onSubmit, perchaseCurrency, saleSum, saleCurrency} = this.props;
+      const {perchaseSum} = this.state;
       const id = generateId();
       const operation = {
         id,
@@ -97,20 +86,17 @@ const withCurrentOperation = (Component) => {
     }
 
     render() {
-      const {saleSum, saleCurrency, perchaseSum, perchaseCurrency} = this.state;
+      const {perchaseSum} = this.state;
+
       return (
         <Component
           {...this.props}
-          perchaseCurrency={perchaseCurrency}
           perchaseSum={perchaseSum}
           onPerchaseCurrencyChange={this._handlePerchaseCurrencyChange}
           onPerchaseSumChange={this._handlePerchaseSumChange}
-          onDateChange={this._handleDateChange}
           onSaleCurrencyChange={this._handleSaleCurrencyChange}
           onSaleSumChange={this._handleSaleSumChange}
           onFormSubmit={this._handleFormSubmit}
-          saleCurrency={saleCurrency}
-          saleSum={saleSum}
         />
       );
     }
@@ -119,6 +105,9 @@ const withCurrentOperation = (Component) => {
   WithCurrentOperation.propTypes = {
     perchaseCurrency: PropTypes.string.isRequired,
     rate: PropTypes.object.isRequired,
+    onPerchaseCurrencyChange: PropTypes.func.isRequired,
+    onSaleCurrencyChange: PropTypes.func.isRequired,
+    onSaleSumChange: PropTypes.func.isRequired,
     onSubmit: PropTypes.func.isRequired,
     saleSum: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
     saleCurrency: PropTypes.string.isRequired,
