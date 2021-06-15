@@ -193,7 +193,7 @@
   list-style: none;
   width: 455px; }
   .history__list--right {
-    padding-left: 65px; }
+    text-align: right; }
 
 .history__item {
   margin-bottom: 23px; }
