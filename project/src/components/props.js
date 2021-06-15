@@ -10,5 +10,9 @@ const propOperation = PropTypes.shape({
 }).isRequired;
 
 const propOpertaions = PropTypes.arrayOf(PropTypes.shape(propOperation)).isRequired;
+const propLink = PropTypes.shape({
+    link: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+  }).isRequired;
 
-export {propOperation, propOpertaions};
+export {propLink, propOperation, propOpertaions};
